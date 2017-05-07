@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RestApiClient {
-    public static final String BASE_URL = "http://api.geonames.org/";
+    public static final String BASE_URL = "http://dice.org.in/api/";
     private static Retrofit retrofit = null;
 
 
