@@ -13,10 +13,10 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import pharmeasytest.com.pharmeasytest.Model.PostModel;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
@@ -26,14 +26,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     FragmentActivity activity;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.cityName)
         TextView cityName;
-        @Bind(R.id.cityLayout)
         RelativeLayout cityLayout;
 
         public ViewHolder(View v) {
             super(v);
-            ButterKnife.bind(this, v);
+            cityLayout = (RelativeLayout) v.findViewById(R.id.cityLayout);
+            cityName = (TextView) v.findViewById(R.id.cityName);
         }
 
     }

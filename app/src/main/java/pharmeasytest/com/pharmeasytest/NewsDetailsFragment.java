@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import pharmeasytest.com.pharmeasytest.Model.ImageModel;
 import pharmeasytest.com.pharmeasytest.Model.ImageSubModel;
 import pharmeasytest.com.pharmeasytest.Model.PostModel;
@@ -22,12 +20,9 @@ import pharmeasytest.com.pharmeasytest.Model.PostModel;
 
 public class NewsDetailsFragment extends Fragment {
 
-    @Bind(R.id.image)
     ImageView image;
 
-    @Bind(R.id.newsDetail)
     TextView newsDetail;
-
 
 
     PostModel postModel;
@@ -35,7 +30,6 @@ public class NewsDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.newsdetail, parent, false);
-        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -43,7 +37,11 @@ public class NewsDetailsFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ImageModel imageModel =  postModel.getThumbnail_images();
+
+        image = (ImageView) getView().findViewById(R.id.image);
+        newsDetail = (TextView) getView().findViewById(R.id.newsDetail);
+
+        ImageModel imageModel = postModel.getThumbnail_images();
         ImageLoader imageLoader = ImageLoader.getInstance();
 
         ImageSubModel imageSubModel = imageModel.getLarge();

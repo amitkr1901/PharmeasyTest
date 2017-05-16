@@ -13,8 +13,6 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import pharmeasytest.com.pharmeasytest.Model.ApiResponse;
 import pharmeasytest.com.pharmeasytest.Model.PostModel;
 import pharmeasytest.com.pharmeasytest.RestApi.ApiInterface;
@@ -30,14 +28,12 @@ import retrofit2.Response;
 
 
 public class NewsFragment extends Fragment {
-    @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.newslayout, parent, false);
-        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -45,7 +41,7 @@ public class NewsFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
+        recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
